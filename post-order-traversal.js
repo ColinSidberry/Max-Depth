@@ -1,29 +1,26 @@
+function maxDepth(root) {
+    if (!root) {
+        return 0;
+    }
+
+    const leftDepth = maxDepth(root.left);
+    const rightDepth = maxDepth(root.right);
+
+    return Math.max(leftDepth, rightDepth) + 1;
+}
+
+
+
+
+
+
+
 class TreeNode {
     constructor(val = 0, left = null, right = null) {
         this.val = val;
         this.left = left;
         this.right = right;
     }
-}
-
-function maxDepth(root) {
-    let maxDepth = 0;
-
-    function traverse(node, currentDepth) {
-        if (node === null) {
-            return;
-        }
-        // Update the maximum depth
-        if (currentDepth > maxDepth) {
-            maxDepth = currentDepth;
-        }
-        // Traverse left and right subtrees
-        traverse(node.left, currentDepth + 1);
-        traverse(node.right, currentDepth + 1);
-    }
-
-    traverse(root, 1);
-    return maxDepth;
 }
 
 function arrayToTreeNode(arr) {

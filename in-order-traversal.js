@@ -1,11 +1,3 @@
-class TreeNode {
-    constructor(val = 0, left = null, right = null) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
 function maxDepth(root) {
     let maxDepth = 0;
 
@@ -13,17 +5,26 @@ function maxDepth(root) {
         if (node === null) {
             return;
         }
+        // Traverse the left subtree
+        traverse(node.left, currentDepth + 1);
         // Update the maximum depth
         if (currentDepth > maxDepth) {
             maxDepth = currentDepth;
         }
-        // Traverse left and right subtrees
-        traverse(node.left, currentDepth + 1);
+        // Traverse the right subtree
         traverse(node.right, currentDepth + 1);
     }
 
     traverse(root, 1);
     return maxDepth;
+}
+
+class TreeNode {
+    constructor(val = 0, left = null, right = null) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
 }
 
 function arrayToTreeNode(arr) {

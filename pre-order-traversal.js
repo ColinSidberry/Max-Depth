@@ -1,11 +1,3 @@
-class TreeNode {
-    constructor(val = 0, left = null, right = null) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-}
-
 function maxDepth(root) {
     let maxDepth = 0;
 
@@ -24,6 +16,14 @@ function maxDepth(root) {
 
     traverse(root, 1);
     return maxDepth;
+}
+
+class TreeNode {
+    constructor(val = 0, left = null, right = null) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
 }
 
 function arrayToTreeNode(arr) {
